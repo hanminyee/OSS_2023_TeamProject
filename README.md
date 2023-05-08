@@ -1,7 +1,11 @@
 <div align="center">
+  
+  ## 🐣 Team EarlyBird 🐣
+  
 <p align="center"><img src="https://cdn-api.sporky.ai/backends/template/293f050f-cf68-46ab-8936-c75634933ba3/156cd56be53f487591b54aa08fa9e1b1.png" height="300px" width="300px"></p>
   
-## 🐣 Team EarlyBird 🐣
+  **🐤Made By lilbirds🐤**
+
   
 </div>
 
@@ -13,12 +17,24 @@
 <p align="center"><img src="https://cdn-api.sporky.ai/backends/template/7c949808-90d5-4c42-bb90-5a6dd433fabe/e2c9e6632c2c4955bfb6e1928f2f5c77.png" height="500px" width="800px"></p>
 </div>
 
-## 이제, 간편하게 도서관의 정보를 받아보세요!
+## 🔔이제, 간편하게 도서관의 정보를 받아보세요!🔔
 
 
-## 📓 What is L-Finder?
+### 📓 Topic of L-Finder
  - 서울시가 제공하는 공공 데이터를 이용하여, 서울 시내의 모든 도서관의 전화번호, 위치 등과 같은 정보를 제공합니다.
  - 새로운 도서관이 생겼다면, 추가하셔도 좋습니다!
+
+### 📓 Introduction
+ - 도서관이 그리울 때, 가끔은 종이를 들여다보고 싶을 때, 그 언제든 L-Finder은 당신의 동반자가 되어줍니다.
+ - 특정 지역의 도서관, 휴관일이 같은 도서관 등을 알려줍니다.
+ - 위치만 입력하면, 당신과 가까운 도서관을 알려주기도 하죠!
+
+### 📓 Functions
+ - 지역을 입력받고, 지역 내의 도서관을 전부 출력
+ - 내가 찾은 도서관 추가하기
+ - 무기한 휴업 중 이거나, 폐업예정인 장소 삭제하기
+ - 실수로 삭제해버린 데이터 살리기
+ - 🐥당신 주위의 도서관 추천하기 🐥
 
 
 
