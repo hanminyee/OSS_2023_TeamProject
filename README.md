@@ -36,6 +36,20 @@
  - 실수로 삭제해버린 데이터 살리기
  - 🐥당신 주위의 도서관 추천하기 🐥
 
+### 📓 Development Environment
+ - 개발언어 = C
+ - IDE = Visual Studio Code
 
+### 📓 Team!
+ > 박한민
+  > > 주위의 도서관 랜덤으로 추천하기  <br/>  파일 내의 정보를 가져와서 동적할당 하기 <br/> 정보 Delete 함수
+
+
+  
+  
+  <br/>
+  
+> 박준하
+ > > 파일 저장 함수 <br/> 파일 print 함수  <br/> 정보 modify 함수  <br/> 정보 복구 함수
 
 
