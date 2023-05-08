@@ -24,7 +24,13 @@ int LoadData(library *list[]){
                 break;
             }
             else{
-                
+                char val[400];
+                fgets(val, 400, fp);
+                char *p = strtok(val, ",");
+                while(p!=NULL){
+                    printf("%s", p);
+                    p = strtok(NULL, ",");
+                }
             }
         }
     }
