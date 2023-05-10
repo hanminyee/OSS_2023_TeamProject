@@ -50,6 +50,6 @@
   <br/>
   
 > 박준하
- > > 파일 저장 함수 <br/> 파일 print 함수  <br/> 정보 modify 함수  <br/> 정보 복구 함수 <br/> 정보 검색 함수 <br/> 정보 추가 함수
+ > > SaveData함수(파일 저장 함수) <br/> 파일 print 함수  <br/> 정보 modify 함수  <br/> 정보 복구 함수 <br/> 정보 search 함수 <br/> 정보 추가 함수
 
 
