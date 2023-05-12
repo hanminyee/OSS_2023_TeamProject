@@ -14,12 +14,12 @@ typedef struct{
 }library;
 
 int SelectMenu();
-void Print(library *list[], int count);
-void Mreate(library *list[], int count);
-void Modify(library *list[], int count);
+void Print(library *list[], int count); // 프린트 함수
+void Mreate(library *list[], int count); //정보 추가 함수
+void Modify(library *list[], int count); // 정보 수정 함수
 void Delete(library *list[], int count);
-void Recover(library *list[], int count);
-void Search(library *list[], int count);
-int LoadData(library *list[]);
-void SaveData(library *list[], int count);
+void Recover(library *list[], int count); // 정보 복수 함수
+void Search(library *list[], int count); //정보 검색 함수
+int LoadData(library *list[]); 
+void SaveData(library *list[], int count);  // 파일 저장 함수
 void Recommendation(library *list[], int count);
