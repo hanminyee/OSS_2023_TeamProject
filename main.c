@@ -6,4 +6,5 @@ int main(){
         lib[i] = (library*)malloc(sizeof(library));
     }
     int count = LoadData(lib);
+    Print(lib,count);
 }

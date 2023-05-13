@@ -3,7 +3,7 @@
 int SelectMenu();
 void Print(library *list[], int count){
 printf("****************************\n");
-printf("도서관 일련번호  도서관명 구 코드  구명  주소 정기 휴관일 전화번호")
+printf("도서관 일련번호  도서관명 구 코드  구명  주소 정기 휴관일 전화번호");
 for(int i=0;i<count;i++){
 if(list[i]==NULL) continue;
 printf("%2d",i+1);
