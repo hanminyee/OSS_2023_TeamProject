@@ -13,13 +13,13 @@ typedef struct{
     char hollyday[300]; //도서관 휴일
 }library;
 
-int SelectMenu();
+void SelectMenu(); //메뉴 보여주기 함수
 void Print(library *list[], int count); // 프린트 함수
-void Mreate(library *list[], int count); //정보 추가 함수
+void Create(library *list[], int count); //정보 추가 함수
 void Modify(library *list[], int count); // 정보 수정 함수
-void Delete(library *list[], int count);
+void Delete(library *list[], int count); // 정보 삭제 함수
 void Recover(library *list[], int count); // 정보 복구 함수
 void Search(library *list[], int count); //정보 검색 함수
-int LoadData(library *list[]); 
+int LoadData(library *list[]); //정보 불러오기 함수
 void SaveData(library *list[], int count);  // 파일 저장 함수
-void Recommendation(library *list[], int count);
+void Recommendation(library *list[], int count); //오늘의 도서관 추천 함수
