@@ -1,4 +1,7 @@
 #include "header.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 void SelectMenu(){ //메뉴 보여주기 함수
     printf("\n----------옵션을 선택하세요----------\n");
@@ -21,7 +24,17 @@ void Modify(library *list[], int count){
     printf("구현중..\n");
 }
 void Delete(library *list[], int count){
-    printf("구현중..\n");
+    printf("==> 폐업하였거나, 영업중이지 않은 도서관의 '일련번호'를 입력해주세요 >> ");
+    int deletenum; //삭제할 일련번호 받는 변수
+    scanf("%d", &deletenum); //받기
+    for(int i = 0; i<count; i++){ 
+        if(list[i]->number==deletenum){ //list[i]->일련번호가 deletenum이면 list[i]->index = -1로 만들기
+            list[i]->index = -1;
+            printf("%s의 정보가 삭제되었습니다!\n", list[i]->name);
+            break;
+        }
+        else continue;
+    }
 }
 void Recover(library *list[], int count){
     printf("구현중..\n");
@@ -51,12 +64,10 @@ int LoadData(library *list[]){
                 fgets(val, 400, fp);
                 char *p = strtok(val, ","); //strtok로 "," 나오면 분리
                 while(p!=NULL){
+                    list[count]->index = count;
                     if(tokcount==0){
-                        list[count]->index = count;
                         int num = atoi(p);
                         list[count]->number = num;
-                        //printf("%d ", list[count]->number);
-                        //printf("dkdkdk");
                         tokcount++;
                     }
                     else if(tokcount==1){
@@ -94,10 +105,10 @@ int LoadData(library *list[]){
                     p = strtok(NULL, ",");
                 }
                 count++;
-                //printf("\n%d\n", count);
             }
         }
     }
+    return count;
 }
 void SaveData(library *list[], int count){
     printf("구현중..\n");
