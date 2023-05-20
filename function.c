@@ -114,6 +114,8 @@ void SaveData(library *list[], int count){
     printf("구현중..\n");
 }
 void Recommendation(library *list[], int count){
-    printf("구현중..\n");
+    int num;
+    num = rand()%count;
+    printf("오늘의 추천 도서관은 %s입니다!\n위치 : %s\n휴일 : %s\n", list[num]->name, list[num]->address, list[num]->hollyday);
 }   
                    
