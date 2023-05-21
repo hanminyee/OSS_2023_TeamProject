@@ -188,7 +188,13 @@ int LoadData(library *list[]){
     return count;
 }
 void SaveData(library *list[], int count){
-    printf("±¸ÇöÁß..\n");
+     FILE *fi;
+    fi = fopen("Library_Info.csv", "w");
+    for(int i=0;i<count;i++){
+        if(list[i]->index== -1) continue;
+        fprintf(fi,"%d,%s,%d,%s,%s,%s,%s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
+    }
+fclose(fi);
 }
 void Recommendation(library *list[], int count){
     int num;
