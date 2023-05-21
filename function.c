@@ -205,7 +205,7 @@ void SaveData(library *list[], int count){
         }
         fprintf(fi,"%d,%s,%d,%s,%s,%s,%s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
     }
-    printf("저장되었습니다!\n");
+    printf("!저장되었습니다!\n");
 fclose(fi);
 }
 void Recommendation(library *list[], int count){
