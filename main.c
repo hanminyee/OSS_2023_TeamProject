@@ -19,7 +19,7 @@ int main(){
         }
         else if(option==2){
             Create(lib, count);
-            count++;
+            count++;// 새로운 도서관 추가해서 count 늘려줌.
         }
         else if(option==3){
             Delete(lib, count);
