@@ -110,6 +110,7 @@ void Recover(library *list[], int count){
 void Search(library *list[], int count){
     getchar();
     char name[100];
+    int num;// 검색한 도서관 수 입력
     printf("검색할 도서관 이름 입력 : ");
         fgets(name,20,stdin);
     name[(strlen(name)-1)]='\0';
@@ -118,10 +119,10 @@ void Search(library *list[], int count){
         if(strstr(list[i]->name,name)!=NULL){
         printf("%2d",i+1);
         printf(" %d %s %d %s %s %s %s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
-        return;
         }
     }
-    printf("검색하신 도서관을 찾을 수 없습니다. 이름을 다시한번 확인해주세요!\n");
+    if(num==0)
+        printf("검색하신 도서관을 찾을 수 없습니다. 이름을 다시한번 확인해주세요!\n");
 }
 int LoadData(library *list[]){
     FILE* fp = fopen("Library_Info.csv", "rt"); //파일 열기
