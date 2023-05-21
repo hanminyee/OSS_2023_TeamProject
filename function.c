@@ -107,7 +107,17 @@ void Recover(library *list[], int count){
     }
 }
 void Search(library *list[], int count){
-    printf("구현중..\n");
+    char name[100];
+    printf("검색할 도서관 이름 입력:");
+        fgets(name,20,stdin);
+    name[(strlen(name)-1)]='\0';
+    printf("****************************\n");
+    for(int i=0;i<count;i++){
+        if(strstr(list[i]->name,name)!=NULL){
+        printf("%2d",i+1);
+        printf(" %d %s %d %s %s %s %s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
+        }
+    }
 }
 int LoadData(library *list[]){
     FILE* fp = fopen("Library_Info.csv", "rt"); //파일 열기
