@@ -14,7 +14,10 @@ int main(){
         SelectMenu();
         int option;
         scanf("%d", &option);
-        if(option==1){
+        if(option==0){
+            Search(lib, count);
+        }
+        else if(option==1){
             Print(lib, count);
         }
         else if(option==2){
