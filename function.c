@@ -8,12 +8,12 @@ void SelectMenu(){ //메뉴 보여주기 함수
     printf("1. 서울시 전체 도서관 보기\n2. 새로운 도서관 추가하기\n3. 사라진 도서관 삭제하기\n4. 실수로 삭제한 도서관 되살리기\n5. 도서관 정보 수정하기\n6. 오늘의 도서관 추천받기\n7. 도서관 정보 저장하기\n8. 종료하기\n\n옵션의 번호를 입력해주세요!>>");
 }
 
-void Print(library *list[], int count){
+void Print(library *list[], int count){// print 함수
     printf("****************************\n");
     printf("도서관 일련번호  도서관명 구 코드  구명  주소 정기 휴관일 전화번호");
-    for(int i=0;i<count;i++){
+    for(int i=0;i<count;i++){//하나씩 프린트
         if(list[i]->index==-1) continue;
-        printf("%2d",i+1);
+        printf("%2d",i+1);// 삭제된 데이터는 표시하지 않음. 
         printf(" %d %s %d %s %s %s %s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
     }
 }
