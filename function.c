@@ -38,7 +38,7 @@ void Create(library *list[], int count) {
     list[count]->hollyday[(strlen(list[count]->hollyday)-1)]='\0';
     printf("전화번호? ");
     fgets(list[count]->hollyday,1000,stdin);
-    list[count]->hollyday[(strlen(list[count]->hollyday)-1)]='\0';
+    //list[count]->hollyday[(strlen(list[count]->hollyday)-1)]='\0';
     printf("생성 완료!");
 }
 void Modify(library *list[], int count){
@@ -185,10 +185,13 @@ int LoadData(library *list[]){
                     //printf("%s", p);
                     p = strtok(NULL, ",");
                 }
+                char dum[10];
+                fgets(dum,10,fp);
                 count++;
             }
         }
     }
+
     return count;
 }
 void SaveData(library *list[], int count){
