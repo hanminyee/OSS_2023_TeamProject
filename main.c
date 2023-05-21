@@ -19,6 +19,7 @@ int main(){
         }
         else if(option==2){
             Create(lib, count);
+            count++;
         }
         else if(option==3){
             Delete(lib, count);
