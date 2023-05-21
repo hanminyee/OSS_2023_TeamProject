@@ -3,93 +3,96 @@
 #include <string.h>
 #include <stdlib.h>
 
-void SelectMenu(){ //¸Ş´º º¸¿©ÁÖ±â ÇÔ¼ö
-    printf("\n----------¿É¼ÇÀ» ¼±ÅÃÇÏ¼¼¿ä----------\n");
-    printf("0. ¼­¿ï ½Ã³» µµ¼­°ü °Ë»öÇÏ±â\n1. ¼­¿ï½Ã ÀüÃ¼ µµ¼­°ü º¸±â\n2. »õ·Î¿î µµ¼­°ü Ãß°¡ÇÏ±â\n3. »ç¶óÁø µµ¼­°ü »èÁ¦ÇÏ±â\n4. ½Ç¼ö·Î »èÁ¦ÇÑ µµ¼­°ü µÇ»ì¸®±â\n5. µµ¼­°ü Á¤º¸ ¼öÁ¤ÇÏ±â\n6. ¿À´ÃÀÇ µµ¼­°ü ÃßÃµ¹Ş±â\n7. µµ¼­°ü Á¤º¸ ÀúÀåÇÏ±â\n8. Á¾·áÇÏ±â\n\n¿É¼ÇÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!>>");
+void SelectMenu(){ //ë©”ë‰´ ë³´ì—¬ì£¼ê¸° í•¨ìˆ˜
+    printf("\n----------ì˜µì…˜ì„ ì„ íƒí•˜ì„¸ìš”----------\n");
+    printf("0. ì„œìš¸ ì‹œë‚´ ë„ì„œê´€ ê²€ìƒ‰í•˜ê¸°\n1. ì„œìš¸ì‹œ ì „ì²´ ë„ì„œê´€ ë³´ê¸°\n2. ìƒˆë¡œìš´ ë„ì„œê´€ ì¶”ê°€í•˜ê¸°\n3. ì‚¬ë¼ì§„ ë„ì„œê´€ ì‚­ì œí•˜ê¸°\n4. ì‹¤ìˆ˜ë¡œ ì‚­ì œí•œ ë„ì„œê´€ ë˜ì‚´ë¦¬ê¸°\n5. ë„ì„œê´€ ì •ë³´ ìˆ˜ì •í•˜ê¸°\n6. ì˜¤ëŠ˜ì˜ ë„ì„œê´€ ì¶”ì²œë°›ê¸°\n7. ë„ì„œê´€ ì •ë³´ ì €ì¥í•˜ê¸°\n8. ì¢…ë£Œí•˜ê¸°\n\nì˜µì…˜ì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!>>");
 }
 
-void Print(library *list[], int count){// print ÇÔ¼ö
+void Print(library *list[], int count){// print í•¨ìˆ˜
     printf("****************************\n");
-    printf("µµ¼­°ü ÀÏ·Ã¹øÈ£  µµ¼­°ü¸í ±¸ ÄÚµå  ±¸¸í  ÁÖ¼Ò Á¤±â ÈŞ°üÀÏ ÀüÈ­¹øÈ£");
-    for(int i=0;i<count;i++){//ÇÏ³ª¾¿ ÇÁ¸°Æ®
+    printf("ë„ì„œê´€ ì¼ë ¨ë²ˆí˜¸  ë„ì„œê´€ëª… êµ¬ ì½”ë“œ  êµ¬ëª…  ì£¼ì†Œ ì •ê¸° íœ´ê´€ì¼ ì „í™”ë²ˆí˜¸\n");
+    for(int i=0;i<count;i++){//í•˜ë‚˜ì”© í”„ë¦°íŠ¸
         if(list[i]->index==-1) continue;
-        printf("%2d",i+1);// »èÁ¦µÈ µ¥ÀÌÅÍ´Â Ç¥½ÃÇÏÁö ¾ÊÀ½. 
+        printf("%2d",i+1);// ì‚­ì œëœ ë°ì´í„°ëŠ” í‘œì‹œí•˜ì§€ ì•ŠìŒ. 
         printf(" %d %s %d %s %s %s %s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
     }
 }
-void Create(library *list[], int count) {
-    printf("µµ¼­°ü ÀÏ·Ã¹øÈ£? ");
+void Create(library *list[], int count) { // ìƒˆë¡œìš´ list ì¶”ê°€ í•¨ìˆ˜
+    printf("ë„ì„œê´€ ì¼ë ¨ë²ˆí˜¸?");
     scanf("%d",&list[count]->number);
-    printf("µµ¼­°ü¸í? ");
+    printf("ë„ì„œê´€ëª…? ");
     getchar();
     fgets(list[count]->name,300,stdin);
     list[count]->name[(strlen(list[count]->name)-1)]='\0';
-    printf("±¸ ÄÚµå? ");
+    printf("êµ¬ ì½”ë“œ? ");
     scanf("%d",&list[count]->localnum);
-    printf("±¸¸í? ");
+    printf("êµ¬ëª…? ");
     getchar();
     fgets(list[count]->localName,20,stdin);
     list[count]->localName[(strlen(list[count]->localName)-1)]='\0';
-    printf("ÁÖ¼Ò? ");
+    printf("ì£¼ì†Œ? ");
     fgets(list[count]->address,1000,stdin);
-    list[count]->address[(strlen(list[count]->address)-1)]='\0';
-    printf("Á¤±â ÈŞ°üÀÏ? ");
+    list[count]->address[(strlen(list[count]->address)-1)]='\0
+    printf("ì •ê¸° íœ´ê´€ì¼?");
     fgets(list[count]->hollyday,1000,stdin);
     list[count]->hollyday[(strlen(list[count]->hollyday)-1)]='\0';
-    printf("ÀüÈ­¹øÈ£? ");
+    printf("ì „í™”ë²ˆí˜¸?");
     fgets(list[count]->callnum,1000,stdin);
     list[count]->callnum[(strlen(list[count]->callnum)-1)]='\0';
-    printf("»ı¼º ¿Ï·á!");
+    printf("ìƒì„± ì™„ë£Œ!");// ìƒì„± ì™„ë£Œ ë©”ì‹œì§€ ì¶œë ¥
 }
 void Modify(library *list[], int count){
-     int number;
-    int listnum;
-    printf("ÀÏ·Ã¹øÈ£ ÀÔ·Â");
-    scanf("%d",&number);
-    for(int i=0;i<count;i++){
+     int number;//ë°›ì„ ì¼ë ¨ë²ˆí˜¸
+    int listnum;// ë°›ì€ ì¼ë ¨ë²ˆí˜¸ì™€ ì¼ì¹˜í•˜ëŠ” ë„ì„œê´€ ì¼ë ¨ë²ˆí˜¸ì˜ index
+    printf("ì¼ë ¨ë²ˆí˜¸ ì…ë ¥");
+    scanf("%d",&number); // ì¼ë ¨ ë²ˆí˜¸ ì…ë ¥ ë°›ê¸°
+    for(int i=0;i<count;i++){//ì…ë ¨ ë°›ì€ ì¼ë ¨ ë²ˆí˜¸ì™€ ì¼ì¹˜í•˜ëŠ” ê²ƒ ì°¾ê¸°
         if(number==list[i]->number){
             listnum=i;
             break;
         }
     }
-        printf("µµ¼­°ü ÀÏ·Ã¹øÈ£? ");
+    printf("%s ìˆ˜ì •\n",list[listnum]->name);
+    // ì¼ì¹˜í•˜ëŠ” ë„ì„œê´€ ìˆ˜ì •
+    printf("ë„ì„œê´€ ì¼ë ¨ë²ˆí˜¸?");
     scanf("%d",&list[listnum]->number);
-    printf("µµ¼­°ü¸í? ");
+    printf("ë„ì„œê´€ëª…? ");
     getchar();
     fgets(list[listnum]->name,300,stdin);
     list[listnum]->name[(strlen(list[listnum]->name)-1)]='\0';
-    printf("±¸ ÄÚµå? ");
+    printf("êµ¬ ì½”ë“œ? ");
     scanf("%d",&list[listnum]->localnum);
-    printf("±¸¸í? ");
+    printf("êµ¬ëª…? ");
     getchar();
     fgets(list[listnum]->localName,20,stdin);
     list[listnum]->localName[(strlen(list[listnum]->localName)-1)]='\0';
-    printf("ÁÖ¼Ò? ");
+    printf("ì£¼ì†Œ? ");
     fgets(list[listnum]->address,1000,stdin);
     list[listnum]->address[(strlen(list[listnum]->address)-1)]='\0';
-    printf("Á¤±â ÈŞ°üÀÏ? ");
+    printf("ì •ê¸° íœ´ê´€ì¼? ");
     fgets(list[listnum]->hollyday,1000,stdin);
-    list[listnum]->hollyday[(strlen(list[listnum]->hollyday)-1)]='\0';
-    printf("ÀüÈ­¹øÈ£? ");
-    scanf("%d",&list[listnum]->callnum);
-    printf("¼öÁ¤ ¿Ï·á ");
+    list[listnum]->hollyday[(strlen(list[listnum]->hollyday)-1)]='\0
+    printf("ì „í™”ë²ˆí˜¸?");
+    fgets(list[count]->callnum,1000,stdin);
+    list[count]->callnum[(strlen(list[count]->callnum)-1)]='\0';
+    printf("ìˆ˜ì • ì™„ë£Œ");
 }
 void Delete(library *list[], int count){
-    printf("==> Æó¾÷ÇÏ¿´°Å³ª, ¿µ¾÷ÁßÀÌÁö ¾ÊÀº µµ¼­°üÀÇ 'ÀÏ·Ã¹øÈ£'¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä >> ");
-    int deletenum; //»èÁ¦ÇÒ ÀÏ·Ã¹øÈ£ ¹Ş´Â º¯¼ö
-    scanf("%d", &deletenum); //¹Ş±â
+    printf("==> íì—…í•˜ì˜€ê±°ë‚˜, ì˜ì—…ì¤‘ì´ì§€ ì•Šì€ ë„ì„œê´€ì˜ 'ì¼ë ¨ë²ˆí˜¸'ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” >> ");
+    int deletenum; //ì‚­ì œí•  ì¼ë ¨ë²ˆí˜¸ ë°›ëŠ” ë³€ìˆ˜
+    scanf("%d", &deletenum); //ë°›ê¸°
     for(int i = 0; i<count; i++){ 
-        if(list[i]->number==deletenum){ //list[i]->ÀÏ·Ã¹øÈ£°¡ deletenumÀÌ¸é list[i]->index = -1·Î ¸¸µé±â
+        if(list[i]->number==deletenum){ //list[i]->ì¼ë ¨ë²ˆí˜¸ê°€ deletenumì´ë©´ list[i]->index = -1ë¡œ ë§Œë“¤ê¸°
             list[i]->index = -1;
-            printf("%sÀÇ Á¤º¸°¡ »èÁ¦µÇ¾ú½À´Ï´Ù!\n", list[i]->name);
+            printf("%sì˜ ì •ë³´ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤!\n", list[i]->name);
             break;
         }
         else continue;
     }
 }
-void Recover(library *list[], int count){
-    int number; 
-    printf("»èÁ¦µÈ µµ¼­°ü:\n");
+void Recover(library *list[], int count){// ë³µêµ¬ í•¨ìˆ˜
+    int number;  // ë³µêµ¬í•  ë„ì„œê´€ì˜ ì¼ë ¨ë²ˆí˜¸ ë°›ê¸°
+    printf("ì‚­ì œëœ ë„ì„œê´€:\n"); // ì‚­ì œëœ ë„ì„œê´€ë“¤ ì¶œë ¥
     printf("****************************\n");
     for(int i=0;i<count;i++){
         if(list[i]->index==-1){
@@ -97,53 +100,54 @@ void Recover(library *list[], int count){
         printf(" %d %s %d %s %s %s %s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
         }
     }
-    printf("º¹±¸ÇÒ µµ¼­°üÀÇ ÀÏ·Ã¹øÈ£ ÀÔ·Â : ");
+    printf("ë³µêµ¬í•  ë„ì„œê´€ì˜ ì¼ë ¨ë²ˆí˜¸ ì…ë ¥ : ");
     scanf("%d",&number);
     for(int i=0;i<count;i++){
-        if(number==list[i]->number){
+        if(number==list[i]->number){ // ì¼ë ¨ë²ˆí˜¸ ì¼ì¹˜í•˜ëŠ” ë„ì„œê´€ ë³µêµ¬
             list[i]->index=i;
-            printf("%sÀÇ Á¤º¸°¡ º¹±¸µÇ¾ú½À´Ï´Ù!\n", list[i]->name);
+            printf("%s ë³µêµ¬ ì„±ê³µ!\n",list[i]->name);
+            printf("%sì˜ ì •ë³´ê°€ ë³µêµ¬ë˜ì—ˆìŠµë‹ˆë‹¤!\n", list[i]->name);
             break;
         }
     }
 }
-void Search(library *list[], int count){
+void Search(library *list[], int count){// ê²€ìƒ‰ í•¨ìˆ˜
     getchar();
-    char name[100];
-    printf("°Ë»öÇÒ µµ¼­°ü ÀÌ¸§ ÀÔ·Â : ");
+    char name[100];// ê²€ìƒ‰í•  ë„ì„œê´€ ì´ë¦„
+    printf("ê²€ìƒ‰í•  ë„ì„œê´€ ì´ë¦„ ì…ë ¥ : ");
         fgets(name,20,stdin);
     name[(strlen(name)-1)]='\0';
     printf("****************************\n");
-    for(int i=0;i<count;i++){
+    for(int i=0;i<count;i++){// ê°™ê±°ë‚˜, ê²€ìƒ‰ëœ ì´ë¦„ì´ í¬í•¨ëœ ë„ì„œê´€ì´ ìˆìœ¼ë©´ ì¶œë ¥
         if(strstr(list[i]->name,name)!=NULL){
         printf("%2d",i+1);
         printf(" %d %s %d %s %s %s %s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
         return;
         }
     }
-    printf("°Ë»öÇÏ½Å µµ¼­°üÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù. ÀÌ¸§À» ´Ù½ÃÇÑ¹ø È®ÀÎÇØÁÖ¼¼¿ä!\n");
+    printf("ê²€ìƒ‰í•˜ì‹  ë„ì„œê´€ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ì´ë¦„ì„ ë‹¤ì‹œí•œë²ˆ í™•ì¸í•´ì£¼ì„¸ìš”!\n");
 }
 int LoadData(library *list[]){
-    FILE* fp = fopen("Library_Info.csv", "rt"); //ÆÄÀÏ ¿­±â
+    FILE* fp = fopen("Library_Info.csv", "rt"); //íŒŒì¼ ì—´ê¸°
 
-    char dummy[400]; //Ã¹ÁÙ ¾ø¾Ö±â¿ë ´õ¹Ì
-    fgets(dummy, 400, fp); //Ã¹ÁÙ ¾ø¾Ö±â
-    int count = 0; //ÆÄÀÏ¿¡ ¸î°³ µ¥ÀÌÅÍ ÀÖ´ÂÁö ¸®ÅÏÇØ¾ßÇÔ
-    if(fp==NULL){ //ÆÄÀÏÀÌ ¾øÀ» ¶§
-        printf("==>ÆÄÀÏÀÌ ¾ø½À´Ï´Ù!\n");
+    char dummy[400]; //ì²«ì¤„ ì—†ì• ê¸°ìš© ë”ë¯¸
+    fgets(dummy, 400, fp); //ì²«ì¤„ ì—†ì• ê¸°
+    int count = 0; //íŒŒì¼ì— ëª‡ê°œ ë°ì´í„° ìˆëŠ”ì§€ ë¦¬í„´í•´ì•¼í•¨
+    if(fp==NULL){ //íŒŒì¼ì´ ì—†ì„ ë•Œ
+        printf("==>íŒŒì¼ì´ ì—†ìŠµë‹ˆë‹¤!\n");
         return 0; 
     }
-    else{ //Á¤»óÀûÀ¸·Î µé¾î¿ÔÀ» ¶§
+    else{ //ì •ìƒì ìœ¼ë¡œ ë“¤ì–´ì™”ì„ ë•Œ
         while(1){
             if(feof(fp)){
-                printf("==>ÆÄÀÏÀ» ºÒ·¯¿Ô½À´Ï´Ù!\n");
+                printf("==>íŒŒì¼ì„ ë¶ˆëŸ¬ì™”ìŠµë‹ˆë‹¤!\n");
                 break;
             }
             else{
-                char val[400]; //fgetsÇÑ°Å ´ã±â´Â º¯¼ö
-                int tokcount = 0; //ÅäÅ« ºĞ¸®ÇÒ ¶§, 0¹øÂ°´Â atoi·Î ¹Ù²Ù°í, 1¹øÂ°´Â strcpyÇØ¾ßÇÏ°í... ¿©·¯ º¯¼ö°¡ ÀÖÀ¸´Ï±î ¾¸
+                char val[400]; //fgetsí•œê±° ë‹´ê¸°ëŠ” ë³€ìˆ˜
+                int tokcount = 0; //í† í° ë¶„ë¦¬í•  ë•Œ, 0ë²ˆì§¸ëŠ” atoië¡œ ë°”ê¾¸ê³ , 1ë²ˆì§¸ëŠ” strcpyí•´ì•¼í•˜ê³ ... ì—¬ëŸ¬ ë³€ìˆ˜ê°€ ìˆìœ¼ë‹ˆê¹Œ ì”€
                 fgets(val, 400, fp);
-                char *p = strtok(val, ","); //strtok·Î "," ³ª¿À¸é ºĞ¸®
+                char *p = strtok(val, ","); //strtokë¡œ "," ë‚˜ì˜¤ë©´ ë¶„ë¦¬
                 while(p!=NULL){
                     list[count]->index = count;
                     if(tokcount==0){
@@ -193,11 +197,11 @@ int LoadData(library *list[]){
 
     return count;
 }
-void SaveData(library *list[], int count){
+void SaveData(library *list[], int count){// íŒŒì¼ ì €ì¥ í•¨ìˆ˜
      FILE *fi;
     fi = fopen("Library_Info.csv", "w");
-    fprintf(fi, "µµ¼­°ü ÀÏ·Ã¹øÈ£,µµ¼­°ü¸í,±¸ ÄÚµå,±¸¸í,ÁÖ¼Ò,Á¤±â ÈŞ°üÀÏ,ÀüÈ­¹øÈ£\n");
-    for(int i=0;i<count;i++){
+    fprintf(fi, "ë„ì„œê´€ ì¼ë ¨ë²ˆí˜¸,ë„ì„œê´€ëª…,êµ¬ ì½”ë“œ,êµ¬ëª…,ì£¼ì†Œ,ì •ê¸° íœ´ê´€ì¼,ì „í™”ë²ˆí˜¸\n");
+    for(int i=0;i<count;i++){// ì‚­ì œëœê²ƒ ì œì™¸ íŒŒì¼ ì €ì¥
         if(list[i]->index== -1) continue;
         if(i==count-1) {
             fprintf(fi,"%d,%s,%d,%s,%s,%s,%s",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
@@ -205,12 +209,13 @@ void SaveData(library *list[], int count){
         }
         fprintf(fi,"%d,%s,%d,%s,%s,%s,%s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
     }
-    printf("!ÀúÀåµÇ¾ú½À´Ï´Ù!\n");
+    printf("!ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤!\n");
 fclose(fi);
+printf("ì €ì¥ ì™„ë£Œ!");
 }
 void Recommendation(library *list[], int count){
     int num;
     num = rand()%count;
-    printf("¿À´ÃÀÇ ÃßÃµ µµ¼­°üÀº %sÀÔ´Ï´Ù!\nÀ§Ä¡ : %s\nÈŞÀÏ : %s\n", list[num]->name, list[num]->address, list[num]->hollyday);
+    printf("ì˜¤ëŠ˜ì˜ ì¶”ì²œ ë„ì„œê´€ì€ %sì…ë‹ˆë‹¤!\nìœ„ì¹˜ : %s\níœ´ì¼ : %s\n", list[num]->name, list[num]->address, list[num]->hollyday);
 }   
                    

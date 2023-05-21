@@ -22,7 +22,7 @@ int main(){
         }
         else if(option==2){
             Create(lib, count);
-            count++;
+            count++;// 새로운 도서관 추가해서 count 늘려줌.
         }
         else if(option==3){
             Delete(lib, count);
@@ -40,6 +40,9 @@ int main(){
             SaveData(lib, count);
         }
         else if(option==8){
+            Search(lib,count);
+        }
+        else if(option==9){
             printf("프로그램을 종료합니다!");
             exit(0);
         }
