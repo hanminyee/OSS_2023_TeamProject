@@ -52,6 +52,7 @@ void Modify(library *list[], int count){
             break;
         }
     }
+    printf("%s 수정\n",list[listnum]->name);
     // 일치하는 도서관 수정
     printf("도서관 일련번호?");
     scanf("%d",&list[listnum]->number);
@@ -104,6 +105,7 @@ void Recover(library *list[], int count){// 복구 함수
     for(int i=0;i<count;i++){
         if(number==list[i]->number){ // 일련번호 일치하는 도서관 복구
             list[i]->index=i;
+            printf("%s 복구 성공!\n",list[i]->name);
             break;
         }
     }
@@ -197,6 +199,7 @@ void SaveData(library *list[], int count){// 파일 저장 함수
         fprintf(fi,"%d,%s,%d,%s,%s,%s,%s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
     }
 fclose(fi);
+printf("저장 완료!");
 }
 void Recommendation(library *list[], int count){
     int num;
