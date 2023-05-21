@@ -37,8 +37,8 @@ void Create(library *list[], int count) {
     fgets(list[count]->hollyday,1000,stdin);
     list[count]->hollyday[(strlen(list[count]->hollyday)-1)]='\0';
     printf("전화번호? ");
-    fgets(list[count]->hollyday,1000,stdin);
-    //list[count]->hollyday[(strlen(list[count]->hollyday)-1)]='\0';
+    fgets(list[count]->callnum,1000,stdin);
+    list[count]->callnum[(strlen(list[count]->callnum)-1)]='\0';
     printf("생성 완료!");
 }
 void Modify(library *list[], int count){
@@ -179,14 +179,13 @@ int LoadData(library *list[]){
                     }
                     else if(tokcount==6){
                         strcpy(list[count]->callnum, p);
+                        list[count]->callnum[(strlen(list[count]->callnum)-1)]='\0';
                         //printf("%s\n", list[count]->callnum);
                         tokcount++;
                     }
                     //printf("%s", p);
                     p = strtok(NULL, ",");
                 }
-                char dum[10];
-                fgets(dum,10,fp);
                 count++;
             }
         }
@@ -197,10 +196,16 @@ int LoadData(library *list[]){
 void SaveData(library *list[], int count){
      FILE *fi;
     fi = fopen("Library_Info.csv", "w");
+    fprintf(fi, "도서관 일련번호,도서관명,구 코드,구명,주소,정기 휴관일,전화번호\n");
     for(int i=0;i<count;i++){
         if(list[i]->index== -1) continue;
+        if(i==count-1) {
+            fprintf(fi,"%d,%s,%d,%s,%s,%s,%s",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
+            return;
+        }
         fprintf(fi,"%d,%s,%d,%s,%s,%s,%s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
     }
+    printf("저장되었습니다!\n");
 fclose(fi);
 }
 void Recommendation(library *list[], int count){
