@@ -18,7 +18,28 @@ void Print(library *list[], int count){// print 함수
     }
 }
 void Create(library *list[], int count) {
-    printf("구현중..\n");
+    printf("도서관 일련번호?");
+    scanf("%d",&list[count]->number);
+    printf("도서관명?");
+    getchar();
+    fgets(list[count]->name,300,stdin);
+    list[count]->name[(strlen(list[count]->name)-1)]='\0';
+    printf("구 코드?");
+    scanf("%d",&list[count]->localnum);
+    printf("구명?");
+    getchar();
+    fgets(list[count]->localName,20,stdin);
+    list[count]->localName[(strlen(list[count]->localName)-1)]='\0';
+    printf("주소?");
+    fgets(list[count]->address,1000,stdin);
+    list[count]->address[(strlen(list[count]->address)-1)]='\0';
+    printf("정기 휴관일?");
+    fgets(list[count]->hollyday,1000,stdin);
+    list[count]->hollyday[(strlen(list[count]->hollyday)-1)]='\0';
+    printf("전화번호?");
+    fgets(list[count]->hollyday,1000,stdin);
+    list[count]->hollyday[(strlen(list[count]->hollyday)-1)]='\0';
+    printf("생성 완료!");
 }
 void Modify(library *list[], int count){
     printf("구현중..\n");
