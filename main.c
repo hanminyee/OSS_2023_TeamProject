@@ -37,7 +37,7 @@ int main(){
             SaveData(lib, count);
         }
         else if(option==8){
-            Serch(lib,count);
+            Search(lib,count);
         }
         else if(option==9){
             printf("프로그램을 종료합니다!");
