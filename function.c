@@ -17,8 +17,8 @@ void Print(library *list[], int count){// print 함수
         printf(" %d %s %d %s %s %s %s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
     }
 }
-void Create(library *list[], int count) {
-    printf("도서관 일련번호? ");
+void Create(library *list[], int count) { // 새로운 list 추가 함수
+    printf("도서관 일련번호?");
     scanf("%d",&list[count]->number);
     printf("도서관명? ");
     getchar();
@@ -33,26 +33,28 @@ void Create(library *list[], int count) {
     printf("주소? ");
     fgets(list[count]->address,1000,stdin);
     list[count]->address[(strlen(list[count]->address)-1)]='\0';
-    printf("정기 휴관일? ");
+    printf("정기 휴관일?");
     fgets(list[count]->hollyday,1000,stdin);
     list[count]->hollyday[(strlen(list[count]->hollyday)-1)]='\0';
-    printf("전화번호? ");
+    printf("전화번호?");
     fgets(list[count]->callnum,1000,stdin);
     list[count]->callnum[(strlen(list[count]->callnum)-1)]='\0';
-    printf("생성 완료!");
+    printf("생성 완료되었습니다!\n");// 생성 완료 메시지 출력
 }
 void Modify(library *list[], int count){
-     int number;
-    int listnum;
-    printf("수정하고 싶은 도서관의 일련번호를 입력해 주세요 ");
-    scanf("%d",&number);
-    for(int i=0;i<count;i++){
+     int number;//받을 일련번호
+    int listnum;// 받은 일련번호와 일치하는 도서관 일련번호의 index
+    printf("일련번호 입력");
+    scanf("%d",&number); // 일련 번호 입력 받기
+    for(int i=0;i<count;i++){//입련 받은 일련 번호와 일치하는 것 찾기
         if(number==list[i]->number){
             listnum=i;
             break;
         }
     }
-        printf("도서관 일련번호? ");
+    printf("%s 수정\n",list[listnum]->name);
+    // 일치하는 도서관 수정
+    printf("도서관 일련번호?");
     scanf("%d",&list[listnum]->number);
     printf("도서관명? ");
     getchar();
@@ -70,13 +72,14 @@ void Modify(library *list[], int count){
     printf("정기 휴관일? ");
     fgets(list[listnum]->hollyday,1000,stdin);
     list[listnum]->hollyday[(strlen(list[listnum]->hollyday)-1)]='\0';
-    printf("전화번호? ");
-    scanf("%d",&list[listnum]->callnum);
-    printf("수정 완료 ");
+    printf("전화번호?");
+    fgets(list[count]->callnum,1000,stdin);
+    list[count]->callnum[(strlen(list[count]->callnum)-1)]='\0';
+    printf("수정 완료");
 }
 void Delete(library *list[], int count){
     printf("==> 폐업하였거나, 영업중이지 않은 도서관의 '일련번호'를 입력해주세요 >> ");
-    int check=0;// 삭제 되었는지 확인
+    int check=0;
     int deletenum; //삭제할 일련번호 받는 변수
     scanf("%d", &deletenum); //받기
     for(int i = 0; i<count; i++){ 
@@ -89,12 +92,12 @@ void Delete(library *list[], int count){
         else continue;
     }
     if(check==0)
-        printf("해당 일련번호는 존재하지 않습니다");
+        printf("해당 정보는 존재하지 않습니다.\n");
 
 }
-void Recover(library *list[], int count){
-    int number; //받은 일련번호
-    printf("삭제된 도서관:\n");
+void Recover(library *list[], int count){// 복구 함수
+    int number;  // 복구할 도서관의 일련번호 받기
+    printf("삭제된 도서관:\n"); // 삭제된 도서관들 출력
     printf("****************************\n");
     printf("도서관 일련번호  도서관명 구 코드  구명  주소 정기 휴관일 전화번호\n");
     for(int i=0;i<count;i++){
@@ -106,34 +109,34 @@ void Recover(library *list[], int count){
     printf("복구할 도서관의 일련번호 입력 : ");
     scanf("%d",&number);
     for(int i=0;i<count;i++){
-        if(number==list[i]->number){
+        if(number==list[i]->number){// 일련번호 일치하는 도서관 복구
             if(list[i]->index==-1){
             list[i]->index=i;
             printf("%s의 정보가 복구되었습니다!\n", list[i]->name);
             break;
             }
-            printf("%s은 삭제된 도서관이 아닙니다.\n", list[i]->name);
+            printf("%s는 삭제된 도서관이 아닙니다.\n", list[i]->name);
             break;
         }
     }
 }
-void Search(library *list[], int count){
+void Search(library *list[], int count){// 검색 함수
     getchar();
-    char name[100];
-    int num;// 검색한 도서관 수 입력
+    char name[100];// 검색할 도서관 이름
+    int num;// 검색 됬는지 확인 
     printf("검색할 도서관 이름 입력 : ");
         fgets(name,20,stdin);
     name[(strlen(name)-1)]='\0';
     printf("****************************\n");
     printf("도서관 일련번호  도서관명 구 코드  구명  주소 정기 휴관일 전화번호\n");
-    for(int i=0;i<count;i++){
+    for(int i=0;i<count;i++){// 같거나, 검색된 이름이 포함된 도서관이 있으면 출력
         if(strstr(list[i]->name,name)!=NULL){
         printf("%2d",i+1);
         printf(" %d %s %d %s %s %s %s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
         }
     }
     if(num==0)
-        printf("검색하신 도서관을 찾을 수 없습니다. 이름을 다시한번 확인해주세요!\n");
+    printf("검색하신 도서관을 찾을 수 없습니다. 이름을 다시한번 확인해주세요!\n");
 }
 int LoadData(library *list[]){
     FILE* fp = fopen("Library_Info.csv", "rt"); //파일 열기
@@ -205,11 +208,11 @@ int LoadData(library *list[]){
 
     return count;
 }
-void SaveData(library *list[], int count){
+void SaveData(library *list[], int count){// 파일 저장 함수
      FILE *fi;
     fi = fopen("Library_Info.csv", "w");
     fprintf(fi, "도서관 일련번호,도서관명,구 코드,구명,주소,정기 휴관일,전화번호\n");
-    for(int i=0;i<count;i++){
+    for(int i=0;i<count;i++){// 삭제된것 제외 파일 저장
         if(list[i]->index== -1) continue;
         if(i==count-1) {
             fprintf(fi,"%d,%s,%d,%s,%s,%s,%s",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
