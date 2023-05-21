@@ -42,7 +42,37 @@ void Create(library *list[], int count) {
     printf("생성 완료!");
 }
 void Modify(library *list[], int count){
-    printf("구현중..\n");
+     int number;
+    int listnum;
+    printf("일련번호 입력");
+    scanf("%d",&number);
+    for(int i=0;i<count;i++){
+        if(number==list[i]->number){
+            listnum=i;
+            break;
+        }
+    }
+        printf("도서관 일련번호?");
+    scanf("%d",&list[listnum]->number);
+    printf("도서관명?");
+    getchar();
+    fgets(list[listnum]->name,300,stdin);
+    list[listnum]->name[(strlen(list[listnum]->name)-1)]='\0';
+    printf("구 코드?");
+    scanf("%d",&list[listnum]->localnum);
+    printf("구명?");
+    getchar();
+    fgets(list[listnum]->localName,20,stdin);
+    list[listnum]->localName[(strlen(list[listnum]->localName)-1)]='\0';
+    printf("주소?");
+    fgets(list[listnum]->address,1000,stdin);
+    list[listnum]->address[(strlen(list[listnum]->address)-1)]='\0';
+    printf("정기 휴관일?");
+    fgets(list[listnum]->hollyday,1000,stdin);
+    list[listnum]->hollyday[(strlen(list[listnum]->hollyday)-1)]='\0';
+    printf("전화번호?");
+    scanf("%d",&list[listnum]->callnum);
+    printf("수정 완료");
 }
 void Delete(library *list[], int count){
     printf("==> 폐업하였거나, 영업중이지 않은 도서관의 '일련번호'를 입력해주세요 >> ");
