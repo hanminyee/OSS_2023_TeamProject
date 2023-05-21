@@ -88,7 +88,23 @@ void Delete(library *list[], int count){
     }
 }
 void Recover(library *list[], int count){
-    printf("구현중..\n");
+    int number; 
+    printf("삭제된 도서관:\n");
+    printf("****************************\n");
+    for(int i=0;i<count;i++){
+        if(list[i]->index==-1){
+            printf("%2d",i+1);
+        printf(" %d %s %d %s %s %s %s\n",list[i]->number,list[i]->name,list[i]->localnum,list[i]->localName,list[i]->address,list[i]->hollyday,list[i]->callnum);
+        }
+    }
+    printf("복구할 도서관의 일련번호 입력");
+    scanf("%d",&number);
+    for(int i=0;i<count;i++){
+        if(number==list[i]->number){
+            list[i]->index=i;
+            break;
+        }
+    }
 }
 void Search(library *list[], int count){
     printf("구현중..\n");
